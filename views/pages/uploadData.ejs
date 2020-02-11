@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+<main>
+  <div class="jumbotron">
+      <h2>Please give me some numbers.</h2>
+
+      <%if (dataArray != null) { %>
+       
+        <ul class="list-group">
+            <% for(var i=0; i<dataArray.length; i++) {%>
+              <li class="list-group-item"><%= dataArray[i] %></li>
+            <% } %>
+          </ul>
+
+
+        <% } %>
+
+     
+
+     
+      </br>
+      <label for="movie">Your data here:</label>
+      <input class="form-control" type="text" id="movie" name="movie"><br>
+      <button class="btn btn-primary  " onclick="updateURL();">Add another piece of data </button>
+
+  </div>
+</main>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+<script type="text/javascript">
+// our menu calls this page URL with no ?id= value,
+// so code needs to check for that
+// when user enters data, I append the data using the required ?id=
+
+  function updateURL() {
+    // http://localhost:3000/uploadData?id=Terminator
+    var myURL = (document.location).toString();
+    var n = myURL.indexOf("?");
+    myURL = myURL.substr(0, n); 
+    document.location = myURL + "?id=" + document.getElementById("movie").value;
+
+  }
+</script>
+
+</body>
+</html>

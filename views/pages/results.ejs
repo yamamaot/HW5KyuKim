@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+<main>
+  <div class="jumbotron">
+      <h2>Results on the data you gave me earlier:</h2>
+     
+
+     
+      </br>
+
+      <% if (dataArray != null) { 
+        let finalTotal = 0;
+        let finalMean = 0;
+        let finalCount = dataArray.length;
+        
+        for(var i=0; i<dataArray.length; i++) {
+          finalTotal += parseInt(dataArray[i]);
+        }
+        finalMean = finalTotal/dataArray.length;
+        %>
+        <p class="dataText">There are a total of <%= finalCount%> numbers that you gave me.</p>
+        <p class="dataText">The total of these numbers is: <%= finalTotal%></p>
+        <p class="dataText">The average of these numbers is: <%= finalMean%></p>
+
+
+        <% } %>
+  </div>
+</main>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+<script type="text/javascript">
+/*
+  let meanDisplay = document.getElementById("meanDisplay");
+document.getElementById("btnAvg").addEventListener("click", getMean(placeholderArray, meanDisplay));
+
+  function getMean(array, display){
+    let finalMean = 0;
+    for (var i = 0; i < array.length; i ++){
+      finalMean += parseInt(array[i]);
+    }
+    finalMean = finalMean/array.length;
+    display.innerHTML = finalMean;
+  }
+//let placeholderArray = dataArray;
+*/
+
+
+</script>
+
+</body>
+</html>
